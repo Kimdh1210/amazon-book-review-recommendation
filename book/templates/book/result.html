@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Top N Recommendations</title>
+</head>
+<body>
+    <h1>Top N Recommendations</h1>
+    {% if top_n_df %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>User ID</th>
+                    <th>Review Score</th>
+                    <th>Review Text</th>
+                    <th>ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in top_n_df %}
+                    <tr>
+                        <td>{{ book.Title }}</td>
+                        <td>{{ book.User_id }}</td>
+                        <td>{{ book.review_score }}</td>
+                        <td>{{ book.review_text }}</td>
+                        <td>{{ book.Id }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No recommendations found.</p>
+    {% endif %}
+</body>
+</html>

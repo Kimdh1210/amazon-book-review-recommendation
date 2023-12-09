@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+    <h1>Add a Book</h1>
+    <form method="post" action="{% url 'input_book' %}">
+        {% csrf_token %}
+        <label for="user_id">User ID:</label>
+        <input type="text" name="user_id" required><br>
+
+        <label for="book_title">Book Title:</label>
+        <input type="text" name="book_title" required><br>
+
+        <label for="review_score">Review Score:</label>
+        <input type="number" name="review_score" required><br>
+
+        <label for="review_text">Review Text:</label>
+        <textarea name="review_text" required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

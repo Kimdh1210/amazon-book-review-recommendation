@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver2) Recommendation Result</title>
+    <style>
+        h1 { text-align: center; color: white;}
+        img {
+            display: block; margin: 0px auto;
+            width: 40%;
+        }
+        body {
+            background-size: 100% 200%;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: #0d47a1;">
+        <h1>{{ User_id }}님을 위한 추천 도서</h1>
+    </div>
+    <div id='contents' style="text-align:center;">
+        {% for book in rec_books %}
+            <div>
+                <h3>{{ book.Title }}</h3>
+                <p>작가: {{ book.authors }}</p>
+                <p>출판일: {{ book.publishedDate }}</p>
+                <p>카테고리: {{ book.categories }}</p>
+                <p>예상 평점: {{ book.predicted_rating|default:"평가 없음"|floatformat:2 }}</p>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

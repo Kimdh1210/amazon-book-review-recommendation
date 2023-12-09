@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ver2)Recommendation</title>
+    <style>
+        h1 { text-align: center; color: white;}
+        img {
+            display: block; margin: 0px auto;
+            width:40%;
+        }
+        select {
+        width: 200px;
+        padding: .8em .5em;
+        border: 1px solid #999;
+        font-family: inherit;
+        border-radius: 0px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        }
+        input[type=text] {
+            width : 190px;
+            height : 30px;
+            font-size : 20px;
+        }
+        body{
+            background-size:100% 200%;
+        }
+    </style>
+</head>
+<body>
+
+<div style="background-color:#0d47a1;">
+    <h1>좋아하는 책과 평점을 선택해주세요.</h1>
+</div>
+
+<!--<div style="text-align:center;">
+    {% csrf_token %}
+    아이디 : <input type="text" name="name" text-align="center" required><br><br>
+</div>-->
+
+<img src="static/img/books.jpg" alt="추천 책">
+<div id="user">
+    <div style="text-align:center; margin:10px;">
+    <form method="POST" action="{% url 'ver2_result' %}">
+        {% csrf_token %}
+        아이디 : <input type="text" name="name" text-align="center" required><br><br>
+        <div style="float:left; margin:5px;">
+        책 :
+        <input type="text" name="book1" placeholder="책 이름을 입력하세요"><br>
+        평점 :
+        <select name="rating1">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3 selected>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+        </select><br><br>
+        </div>
+
+        <div style="float:left; margin:5px;">
+        책 :
+        <input type="text" name="book2" placeholder="책 이름을 입력하세요"><br>
+        평점 :
+        <select name="rating2">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3 selected>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+        </select><br><br>
+        </div>
+
+        <div style="float:left; margin:5px;">
+        책 :
+        <input type="text" name="book3" placeholder="책 이름을 입력하세요"><br>
+        평점 :
+        <select name="rating3">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3 selected>3</option>
+            <option value=4>4</option>
+            <option value=5>5</option>
+        </select><br><br>
+        </div>
+            <br><br><br>
+        <input class="btn btn-success" type="submit" value="추천 받기!">
+    </form>
+    </div>
+</div>
+</div>
+</body>
+</html>
